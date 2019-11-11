@@ -1,2 +1,0 @@
-zrobione w trakcie zajęć
-implementacja algorytmu grahama do momentu pentli while
