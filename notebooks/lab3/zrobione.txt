@@ -1,0 +1,1 @@
+na zajęciach zrobiłem generowanie losowych zbiorów lini oraz zaimplementowałem algorytm który sprawdza czy w choć jedna para lini się przecina i opisałem struktury

@@ -1,0 +1,1 @@
+do implementacji punktu drugiego użyłem struktury sorted set jako struture stanu oraz minheap jako strukture zdarzen
