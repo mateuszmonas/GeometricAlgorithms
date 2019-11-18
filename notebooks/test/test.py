@@ -139,7 +139,7 @@ class SweepLineStatus:
     def __init__(self):
         super().__init__()
         self.lines:SortedSet = None
-        self.events: List[Point] = []
+        self.events: SortedSet = SortedSet(key=lambda p:-p.x)
         self.scenes = scenes
         self.dataset = {}
         self.results = set([])
@@ -163,13 +163,12 @@ class SweepLineStatus:
         for l in dataset:
             self.dataset[l.get_left()] = l
             self.dataset[l.get_right()] = l
-            self.events.append((l.get_left()))
-            self.events.append((l.get_right()))
-        heapq.heapify(self.events)
+            self.events.add(l.get_left())
+            self.events.add(l.get_right())
         self.x = self.events[0].x
         self.lines = SortedSet(key=functools.cmp_to_key(self.comparator))
-        while self.events:
-            event = heapq.heappop(self.events)
+        while len(self.events)>0:
+            event = self.events.pop()
             self.event_happened(event)
         return self.results
 
@@ -184,15 +183,14 @@ class SweepLineStatus:
             intersection = self.find_intersection(self.lines[i - 1], self.lines[i + 1])
             if intersection is not None and intersection in self.events:
                 self.events.remove(intersection)
-                heapq.heapify(self.events)
         if i - 1 >= 0:
             intersection = self.find_intersection(self.lines[i - 1], line)
-            if intersection is not None and intersection not in self.results:
-                heapq.heappush(self.events, intersection)
+            if intersection is not None and intersection not in self.results and intersection not in self.events:
+                self.events.add(intersection)
         if i + 1 < len(self.lines):
             intersection = self.find_intersection(line, self.lines[i + 1])
-            if intersection is not None and intersection not in self.results:
-                heapq.heappush(self.events, intersection)
+            if intersection is not None and intersection not in self.results and intersection not in self.events:
+                self.events.add(intersection)
 
     def remove_line(self, line: Line):
         i = self.lines.bisect_left(line)
@@ -201,7 +199,7 @@ class SweepLineStatus:
         if i - 1 >= 0 and i + 1 < len(self.lines):
             intersection = self.find_intersection(self.lines[i - 1], self.lines[i + 1])
             if intersection is not None and intersection not in self.results:
-                heapq.heappush(self.events, intersection)
+                self.events.add(intersection)
         self.lines.remove(line)
 
     def intersection_event(self, intersection: Point):
