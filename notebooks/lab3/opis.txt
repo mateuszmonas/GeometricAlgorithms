@@ -1,1 +1,8 @@
 do implementacji punktu drugiego użyłem struktury sorted set jako struture stanu oraz minheap jako strukture zdarzen
+
+do implementacji algorytmu wykrywającego wszystkie przecięcia również wykorzystałem strukturę sorted set,
+jednak strukturę zdarzeń zmieniłem z minheap na sorted set, aby uniknąć dodawania tego samego punktu przecięcia kilkukrotnie
+w przypadku pierwszego algorytmu jako strukturę zdarzeń można wykorzystać posortowaną listę, ponieważ zdarzenia przecięć nie są do niej dodawane
+
+mój program radzi sobie z wykrywaniem przecięć więcej niż jeden raz poprzez wykorzystanie struktury set jako struktury zdarzeń, co zapobiega dodaniu
+tego samego zdarzenia dwa razy
