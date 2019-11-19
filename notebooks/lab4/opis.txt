@@ -1,0 +1,4 @@
+Aby sprawdzić y-monotoniczność znajduję punkt w wieloboku o największym y.
+Następnie znajduję wierzchołek lowest_a przechodzę po jego poprzednikach aż nie znajdę wierzchołka którego poprzednik ma y większy od niego
+Następnie przechodzę przez następników wierzchoła o największym y.
+Jeżeli spotkam wierzchołek lowest_a, to wielobok jest y-monotoniczny
