@@ -2,3 +2,15 @@ Aby sprawdzić y-monotoniczność znajduję punkt w wieloboku o największym y.
 Następnie znajduję wierzchołek lowest_a przechodzę po jego poprzednikach aż nie znajdę wierzchołka którego poprzednik ma y większy od niego
 Następnie przechodzę przez następników wierzchoła o największym y.
 Jeżeli spotkam wierzchołek lowest_a, to wielobok jest y-monotoniczny
+
+Struktura przechowująca wielokąt opiera się na podwójnie połącznonej liście wierzchołków, które są połączone ze sobą przeciwnie do ruchu wskazówek zegara.
+Pozwala to jednoznacznie określić czy dany punkt znajduje się w łancuchu lewym czy prawym.
+Jest to potrzebne przy sprawdzaniu czy linia między punktami jest wewnątrz wielokąta.
+
+Procedura triangulacji przebiega następująco:
+Najpierw punkty są segregowane względem y
+Następnie dodajemy dwa piersze wierzchołki na stos
+Dla każdego z kolenych wierzchołków sprawdzamy czy jest na tym samym łancuchu co poprzedni
+    jeżeli tak, to tworzymy prostą między nim a drugim od góry elementem stosu, następnie usuwamy wierzchołek stosu i dodajemy do niego badany punkt
+    jeżeli nie, to tworzymy prostą między nim a wszystkimi wierzchołkami na stosie, a następnie dodajemy na stos dwa badany wierzchołek oraz wierzchołek poprzedzający
+
