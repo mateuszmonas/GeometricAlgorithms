@@ -3,4 +3,4 @@ Według mnie zaproponowano takie zbiory aby mozna było w łatwy sposób przetes
 Zbiór punktów na kole mógł być problematyczny, bo wszystkie z nich należą do otoczki
 Zbiór punktów na prostokącie mógł być problematyczny, bo jest wiele punktów kolinearnych
 Dzięki temu łątwo jest sprawdzić poprawność działania podanych algorytmów
-Porównanie czasu działania algorytmów nie wykazało lekką przewagę algorytmu Grahama
+Porównanie czasu działania algorytmów nie wykazało lekką przewagę algorytmu Jarvisa

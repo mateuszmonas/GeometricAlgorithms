@@ -1,0 +1,4 @@
+Na zajęciach dostosowałem aplikację graficzną tak, żeby można było dodawać interaktywnie wielokąty,
+zaimplementowałem procedurę sprawdzającą y-monotoniczność wielokąta,
+algorytm kolorujący wierzchołki zgodnie z klasyfikacją
+oraz częściowo działającą procedurę triangulacji
