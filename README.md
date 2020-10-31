@@ -1,3 +1,5 @@
+__Jak pomogłem daj gwiazdkę.__
+
 # GeometricAlgorithms
 
 Geometric algorithms implemented during laboratorias
